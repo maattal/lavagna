@@ -18,20 +18,8 @@ services:
       - front-net
 
 
-  documentation:
-    build:
-      context: ./
-      dockerfile: stampo.Dockerfile
-    
-    ports:
-      - "8081:45001"
-    
-    networks:
-      - front-net
-
-
   backend:
-    build: ./
+    image: public.ecr.aws/c7o8u9c1/lavagna_app_malki:latest
     environment:
       - DB_DIALECT=MYSQL
       - DB_URL=jdbc:mysql://db:3306/lavagna
